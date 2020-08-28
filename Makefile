@@ -1,13 +1,13 @@
-all: hello/hello
+all: out
 
 libhello.a: c/hello.c c/hello.h
 	gcc -c $< -o $@
 
-hello/hello: hello/hello.go libhello.a c/hello.h
-	cd hello; go build -ldflags '-extldflags -static'
+out: hello/hello.go libhello.a c/hello.h
+	cd hello; go build -ldflags '-extldflags -static'; mv hello ../$@
 
 .PHONY: clean
 
 clean:
-	rm -f hello/hello
+	rm -f out
 	rm -f libhello.a
