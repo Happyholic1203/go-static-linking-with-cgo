@@ -1,7 +1,7 @@
 package bridge
 
 // #cgo CFLAGS: -I../c
-// #cgo LDFLAGS: /home/xcenter/go-static-linking/libhello.a
+// #cgo LDFLAGS: ${SRCDIR}/../libhello.a
 // #include "hello.h"
 import "C"
 
